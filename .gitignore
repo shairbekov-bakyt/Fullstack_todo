@@ -1,0 +1,4 @@
+
+/backend/*.db
+env
+.DS_Store
