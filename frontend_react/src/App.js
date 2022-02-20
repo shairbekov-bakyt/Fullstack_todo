@@ -32,23 +32,23 @@ class App extends Component {
     this.setState({ modal: !this.state.modal });
   };
 
-  // handleSubmit = (item) => {
-  //   this.toggle();
+  handleSubmit = (item) => {
+    this.toggle();
 
-  //   if (item.id) {
-  //     axios
-  //       .put(`/api/todos/${item.id}/`, item)
-  //       .then((res) => this.refreshList());
-  //     return;
-  //   }
-  //   axios
-  //     .post("/api/create/todo/", item)
-  //     .then((res) => this.refreshList());
-  // };
+    if (item.id) {
+      axios
+        .put(`/api/todos/${item.id}/`, item)
+        .then((res) => this.refreshList());
+      return;
+    }
+    axios
+      .post("/api/todos/", item)
+      .then((res) => this.refreshList());
+  };
 
   handleDelete = (item) => {
     axios
-      .delete(`/api/delete/todo/${item.id}/`)
+      .delete(`/api/todos/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
