@@ -36,7 +36,7 @@ python3 manage.py migrate
 python3 manage.py runserver localhost:8000
 ```
 
-# Run react
+# Run manually react
 
 ```
 cd frontend_react
