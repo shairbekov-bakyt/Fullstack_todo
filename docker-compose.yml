@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+  django:
+    build: ./backend_django_rest_api
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    volumes:
+      - ./backend_django:/app/backend_django
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  frontend:
+    build: ./frontend_react
+    command: ["npm", "start"]
+    volumes:
+      - ./frontend_react:/app/frontend_react
+      - node-modules:/app/frontend_react/node_modules
+    ports:
+      - "3000:3000"
+
+volumes:
+  node-modules:
