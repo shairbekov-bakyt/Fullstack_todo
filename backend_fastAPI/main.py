@@ -30,7 +30,7 @@ app.add_middleware(
 
 #our urls 
 
-@app.post('/api/create/todo/')
+@app.post('/api/todos/')
 async def create_todo(todo : TodoRequest):
 
     session = Session(bind=engine,expire_on_commit=false)
@@ -60,7 +60,7 @@ async def update_todo(id:int,name:str,description:str,completed:bool):
     else :
         return f"Error we did not find todo with id {id}"
 
-@app.delete('/api/delete/todo/{id}/')
+@app.delete('/api/todos/{id}/')
 async def delete_todo(id:int):
     session = Session(bind=engine,expire_on_commit=false)
     todo = session.query(Todo).get(id)
