@@ -1,4 +1,5 @@
 
-/backend/*.db
+/backend_djagno_rest_api/*.db
+/backend_fastAPI/*.db
 env
 .DS_Store
